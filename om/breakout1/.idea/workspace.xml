@@ -46,7 +46,7 @@
       <file leaf-file-name="core.cljs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/breakout1/core.cljs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21017514">
+            <state vertical-scroll-proportion="0.31698114">
               <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
@@ -680,8 +680,8 @@
       <method />
     </configuration>
     <configuration default="false" name="Figwheel" type="ClojureREPL" factoryName="Local">
-      <setting name="useLein" value="true" />
-      <setting name="useClojureMain" value="false" />
+      <setting name="useLein" value="false" />
+      <setting name="useClojureMain" value="true" />
       <setting name="leinProjectName" value="breakout1:0.1.0-SNAPSHOT" />
       <module name="breakout1" />
       <setting name="jvmArgs" value="" />
@@ -710,12 +710,12 @@
       <created>1445023458033</created>
       <option name="number" value="Default" />
       <updated>1445023458033</updated>
-      <workItem from="1445023459330" duration="408000" />
+      <workItem from="1445023459330" duration="573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="408000" />
+    <option name="totallyTimeSpent" value="573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1234" y="105" width="1262" height="1270" extended-state="0" />
@@ -732,7 +732,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925835" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -787,7 +787,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/breakout1/core.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21017514">
+        <state vertical-scroll-proportion="0.31698114">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
