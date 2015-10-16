@@ -1,0 +1,56 @@
+[[{:db/id    #db/id[:db.part/user]
+   :org/name "Kitchen Table Coders"}
+  {:db/id    #db/id[:db.part/user]
+   :org/name "Cognitect"}]
+ [{:db/id             #db/id[:db.part/user]
+   :person/first-name "Bob"
+   :person/last-name  "Smith"
+   :person/email      [{:email/address "bob.smith@foo.com"}]
+   :person/telephone  [{:telephone/number "111-111-1111"}]
+   :person/address    [{:address/street  "Maple Street"
+                        :address/city    "Boston"
+                        :address/state   "Massachusetts"
+                        :address/zipcode "11111"}]}
+  {:db/id             #db/id[:db.part/user]
+   :person/first-name "Martha"
+   :person/last-name  "Smith"
+   :person/email      [{:email/address "martha.smith@bar.com"}]
+   :person/telephone  [{:telephone/number "111-111-1112"}]
+   :person/address    [{:address/street  "Maple Street"
+                        :address/city    "Boston"
+                        :address/state   "Massachusetts"
+                        :address/zipcode "11111"}]}
+  {:db/id             #db/id[:db.part/user]
+   :person/first-name "Kovas"
+   :person/last-name  "Boguta"
+   :person/org        [{:db/id [:org/name "Kitchen Table Coders"]}]
+   :person/email      [{:email/address "kovas.boguta@bar.com"}]
+   :person/telephone  [{:telephone/number "111-111-1113"}]
+   :person/address    [{:address/street  "274 Morgan Ave"
+                        :address/city    "Brooklyn"
+                        :address/state   "New York"
+                        :address/zipcode "11211"}]}
+
+  {:db/id             #db/id[:db.part/user]
+   :person/first-name "David"
+   :person/last-name  "Nolen"
+   :person/org        [{:db/id [:org/name "Kitchen Table Coders"]}
+                       {:db/id [:org/name "Cognitect"]}]
+   :person/telephone  [{:telephone/number "111-111-1114"}]
+   :person/address    [{:address/street  "274 Morgan Ave"
+                        :address/city    "Brooklyn"
+                        :address/state   "New York"
+                        :address/zipcode "11211"}]}
+
+  {:db/id             #db/id[:db.part/user]
+   :person/first-name "Rich"
+   :person/last-name  "Hickey"
+   :person/org        [{:db/id [:org/name "Cognitect"]}]
+   :person/email      [{:email/address "rich.hickey@bar.com"}]
+   :person/address    [{:address/street  "1 Simple Way"
+                        :address/city    "Hammockville"
+                        :address/state   "New York"
+                        :address/zipcode "10000"}]}
+
+  ]]
+
