@@ -394,29 +394,3 @@
 
 
   )
-
-
-
-
-
-
-
-(d/q '[:find ?ln
-       :where
-       [_ :org/name ?ln]]
-     (d/db conn))
-
-
-(d/q '[:find ?e ?ident
-       :where
-       [?e :person/first-name ?fn]
-       [?e ?attr ?val]
-       [?attr :db/ident ?ident]]
-     (d/db conn))
-
-(d/q '[:find ?ident
-       :where
-       [?e :person/first-name ?fn]
-       [?e ?attr ?val]
-       [?attr :db/ident ?ident]]
-     (d/db conn))
