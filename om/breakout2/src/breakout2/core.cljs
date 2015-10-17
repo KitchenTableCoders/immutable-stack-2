@@ -6,6 +6,36 @@
 
 (enable-console-print!)
 
+;; -----------------------------------------------------------------------------
+;; Part 1
+
+(defn read1 [env key params]
+  (let [st    @(:state env)
+        value (get st key)]
+    (cond
+      (= :not/here! key) {:remote true}
+
+      value {:value value}
+
+      :else
+      {:value :not-found})))
+
+(def my-state (atom {:foo 1 :bar 2}))
+(def parser1 (om/parser {:read read1}))
+
+(comment
+  ;; Exercise 1: run the following expressions
+  (parser1 {:state my-state} [:foo])
+  (parser1 {:state my-state} [:foo :bar])
+  (parser1 {:state my-state} [:foo :bar :not/here!])
+  ;; Exercise 2: Why did :not/here! appear in the previous one? Try the
+  ;;   following
+  (parser1 {:state my-state} [:not/here!] {:remote true})
+  )
+
+;; -----------------------------------------------------------------------------
+;; Part 2
+
 (def init-data
   {:address-book
    [{:name "Bob Smith"
@@ -19,14 +49,14 @@
    [{:name "Bob Smith" :age 35}
     {:name "Rita Black" :age 34}]})
 
-(defmulti read om/dispatch)
+(defmulti read2 om/dispatch)
 
-(defmethod read :address-book
+(defmethod read2 :address-book
   [{:keys [state]} key params]
   (let [st @state]
     {:value (into [] (map #(get-in st %)) (get st key))}))
 
-(defmethod read :friends
+(defmethod read2 :friends
   [{:keys [state]} key params]
   (let [st @state]
     {:value (into [] (map #(get-in st %)) (get st key))}))
@@ -66,7 +96,7 @@
   ;; Exercise 4: put the normalized data into an atom and
   ;;   store the atom in a var called "norm"
   ;; Exercise 5: make a parser using the supplied "read" function
-  ;;   put this in var called "parser"
+  ;;   put this in var called "parser2"
   ;; Exercise 6: parse the data back into a tree with the following
   ;;   expression. What's interesting about the result?
   )
