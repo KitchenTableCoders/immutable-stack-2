@@ -6,16 +6,62 @@
 
 (enable-console-print!)
 
+;; -----------------------------------------------------------------------------
+;; Initial Data
+
+(def init-data
+  {:counters
+   [{:id 0 :count 0}
+    {:id 1 :count 0}
+    {:id 0 :count 0}]})
+
+;; -----------------------------------------------------------------------------
+;; Parsing
+
+(defmulti read om/dispatch)
+
+(defmethod read :counters
+  [env key params]
+  (let [st @(:state env)]
+    {:value (into [] (get-in st %) (get st key))}))
+
 (defmulti mutate om/dispatch)
 
-(defmethod mutate ‘increment
+(defmethod mutate ‘counter/increment
   [env key params]
   {:action
    (fn []
-     (swap! (:state env)
-       update-in [:count] inc)))
+     (swap! (:state env) update-in [:count] inc))})
 
 (def parser
   (om/parser
-    {:read read
+    {:read   read
      :mutate mutate}))
+
+;; -----------------------------------------------------------------------------
+;; Components
+
+(defui Counter
+  om/Ident
+  (ident [this {:keys [id]}]
+    [:app/counters id])
+  static om/IQuery
+  (query [this]
+    '[:id :counter/count])
+  Object
+  (render [this]
+    (let [{:keys [:counter/count] :as props} (om/props this)]
+      (dom/div nil
+        (dom/p nil (str "Count: " count))
+        (dom/button
+          #js {:onClick (fn [_] (om/transact! this '[(counter/increment)]))}
+          "Click Me!")))))
+
+(def counter (om/factory Counter {:keyfn :id}))
+
+(def reconciler
+  {:state  init-data
+   :parser parser})
+
+(om/add-root! reconciler
+  Counter (gdom/getElement "app"))
