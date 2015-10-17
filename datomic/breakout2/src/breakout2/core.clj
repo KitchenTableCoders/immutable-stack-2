@@ -211,7 +211,7 @@
 
   
   (d/t->tx
-    (d/basis-t (d/basis-t (:db-after @result))))
+    (d/basis-t (:db-after @result)))
 
 
   (let [db (:db-after @result)]
