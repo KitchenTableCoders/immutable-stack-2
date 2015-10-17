@@ -23,7 +23,7 @@
 (defmethod read :counters
   [env key params]
   (let [st @(:state env)]
-    {:value (into [] #(get-in st %) (get st key))}))
+    {:value (into [] (map #(get-in st %)) (get st key))}))
 
 (defmulti mutate om/dispatch)
 
@@ -31,7 +31,8 @@
   [env key params]
   {:action
    (fn []
-     (swap! (:state env) update-in [:count] inc))})
+     (swap! (:state env) update-in
+       (conj (:ref env) :count) inc))})
 
 (def parser
   (om/parser
@@ -42,19 +43,21 @@
 ;; Components
 
 (defui Counter
-  om/Ident
+  static om/Ident
   (ident [this {:keys [id]}]
-    [:counter id])
+    [:counter/by-id id])
   static om/IQuery
   (query [this]
-    [:id :count])
+    [:id :count :rkey])
   Object
   (render [this]
-    (let [{:keys [:counter/count] :as props} (om/props this)]
+    (let [{:keys [count] :as props} (om/props this)]
       (dom/div nil
         (dom/p nil (str "Count: " count))
         (dom/button
-          #js {:onClick (fn [_] (om/transact! this '[(counter/increment)]))}
+          #js {:onClick
+               (fn [_]
+                 (om/transact! this '[(counter/increment)]))}
           "Click Me!")))))
 
 (def counter (om/factory Counter {:keyfn :id}))
@@ -66,12 +69,14 @@
   Object
   (render [this]
     (let [props (om/props this)]
-      (apply dom/ul
-        (map counter (:counters props))))))
+      (apply dom/ul nil
+        (map #(dom/li nil (counter %))
+          (:counters props))))))
 
 (def reconciler
-  {:state  init-data
-   :parser parser})
+  (om/reconciler
+    {:state  init-data
+     :parser parser}))
 
 (om/add-root! reconciler
-  Counter (gdom/getElement "app"))
+  App (gdom/getElement "app"))
