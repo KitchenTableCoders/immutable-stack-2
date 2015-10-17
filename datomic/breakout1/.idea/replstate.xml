@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ReplState" timestamp="1445041704263">{:repl-history {:ide [], :local [&quot;(def uri \&quot;datomic:mem://localhost:4334/contacts\&quot;)&quot; &quot;(in-ns 'breakout1.core)&quot; &quot;(require 'breakout1.core)&quot; &quot;(load-file 'breakout1.core)&quot; &quot;(load-file 'breakout1.core)\n&quot;], :remote []}}</component>
-</project>
