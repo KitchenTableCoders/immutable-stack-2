@@ -44,10 +44,10 @@
 (defui Counter
   om/Ident
   (ident [this {:keys [id]}]
-    [:app/counters id])
+    [:counter id])
   static om/IQuery
   (query [this]
-    '[:id :counter/count])
+    [:id :count])
   Object
   (render [this]
     (let [{:keys [:counter/count] :as props} (om/props this)]
@@ -58,6 +58,16 @@
           "Click Me!")))))
 
 (def counter (om/factory Counter {:keyfn :id}))
+
+(defui App
+  static om/IQuery
+  (query [this]
+    [:counters])
+  Object
+  (render [this]
+    (let [props (om/props this)]
+      (apply dom/ul
+        (map counter (:counters props))))))
 
 (def reconciler
   {:state  init-data
