@@ -23,11 +23,11 @@
 (defmethod read :counters
   [env key params]
   (let [st @(:state env)]
-    {:value (into [] (get-in st %) (get st key))}))
+    {:value (into [] #(get-in st %) (get st key))}))
 
 (defmulti mutate om/dispatch)
 
-(defmethod mutate ‘counter/increment
+(defmethod mutate 'counter/increment
   [env key params]
   {:action
    (fn []
@@ -62,7 +62,7 @@
 (defui App
   static om/IQuery
   (query [this]
-    [:counters])
+    [{:counters (om/get-query Counter)}])
   Object
   (render [this]
     (let [props (om/props this)]
