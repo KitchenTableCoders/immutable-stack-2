@@ -95,7 +95,7 @@
   (pprint/pprint (om/normalize MyApp init-data true))
   ;; Exercise 4: put the normalized data into an atom and
   ;;   store the atom in a var called "norm"
-  ;; Exercise 5: make a parser using the supplied "read" function
+  ;; Exercise 5: make a parser using the supplied "read2" function
   ;;   put this in var called "parser2"
   ;; Exercise 6: parse the data back into a tree with the following
   ;;   expression. What's interesting about the result?
