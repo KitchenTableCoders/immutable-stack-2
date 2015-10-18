@@ -23,18 +23,19 @@
 (defmethod read :counters
   [env key params]
   (let [st @(:state env)]
-    {:value (into [] (map #(get-in st %)) (get st key))}))
+    {:value (into [] (map #(get-in st %))
+              (get st key))}))
 
 (defmulti mutate om/dispatch)
 
 (defmethod mutate 'counter/increment
-  [env key params]
+  [env key {:keys [id] :as params}]
   {:action
    (fn []
      (swap! (:state env) update-in
-       (conj (:ref env) :count) inc))})
+       (conj [:counter/by-id id] :count) inc))})
 
-(def parser
+(def parser1
   (om/parser
     {:read   read
      :mutate mutate}))
@@ -48,16 +49,17 @@
     [:counter/by-id id])
   static om/IQuery
   (query [this]
-    [:id :count :rkey])
+    [:id :count])
   Object
   (render [this]
-    (let [{:keys [count] :as props} (om/props this)]
+    (let [{:keys [id count] :as props} (om/props this)]
       (dom/div nil
         (dom/p nil (str "Count: " count))
         (dom/button
           #js {:onClick
                (fn [_]
-                 (om/transact! this '[(counter/increment)]))}
+                 (om/transact! this
+                   `[(counter/increment {:id ~id})]))}
           "Click Me!")))))
 
 (def counter (om/factory Counter {:keyfn :id}))
@@ -76,7 +78,16 @@
 (def reconciler
   (om/reconciler
     {:state  init-data
-     :parser parser}))
+     :parser parser1}))
 
 (om/add-root! reconciler
   App (gdom/getElement "app"))
+
+(def app-state (atom (om/normalize App init-data true)))
+(def parser2 (om/parser {:read read :mutate mutate}))
+
+(comment
+  ;; Exercise 1: parse the following mutation and deref the app-state
+  (parser2 {:state app-state} '[(counter/increment {:id 0})])
+  @app-state
+  )
