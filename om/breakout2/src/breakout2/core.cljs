@@ -30,7 +30,7 @@
   (parser1 {:state my-state} [:foo :bar :not/here!])
   ;; Exercise 2: Why did :not/here! appear in the previous one? Try the
   ;;   following
-  (parser1 {:state my-state} [:not/here!] {:remote true})
+  (parser1 {:state my-state} [:foo :bar :not/here!] {:remote true})
   )
 
 ;; -----------------------------------------------------------------------------

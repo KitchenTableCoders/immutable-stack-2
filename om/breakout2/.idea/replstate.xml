@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ReplState" timestamp="1445194611988">{:repl-history {:ide [], :local [&quot;(parser1 {:state my-state} [:foo :bar :not/here!] {:remote true})&quot; &quot;(om/get-query MyApp)&quot;], :remote []}}</component>
+</project>
