@@ -75,7 +75,7 @@
         (map #(dom/li nil (counter %))
           (:counters props))))))
 
-(def reconciler
+(defonce reconciler
   (om/reconciler
     {:state  init-data
      :parser parser1}))
@@ -90,4 +90,7 @@
   ;; Exercise 1: parse the following mutation and deref the app-state
   (parser2 {:state app-state} '[(counter/increment {:id 0})])
   @app-state
+  ;; Exercise 2: Copy a UUID from the JavaScript Developer Console and use
+  ;;   this to read a previous state of the application
+  (om/from-history reconciler #uuid "13d69c15-e2e7-4256-89c6-855c4390228d")
   )

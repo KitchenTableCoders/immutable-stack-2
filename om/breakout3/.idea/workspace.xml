@@ -30,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/src/breakout3/core.cljs">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.84501845">
-              <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+              <caret line="94" column="75" selection-start-line="94" selection-start-column="75" selection-end-line="94" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -810,7 +810,7 @@
       <created>1445123085363</created>
       <option name="number" value="Default" />
       <updated>1445123085363</updated>
-      <workItem from="1445123086710" duration="3616000" />
+      <workItem from="1445123086710" duration="4433000" />
     </task>
     <task id="LOCAL-00001" summary="breakout3">
       <created>1445123154254</created>
@@ -848,11 +848,17 @@
       <option name="project" value="LOCAL" />
       <updated>1445126125154</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="wip">
+      <created>1445126709591</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1445126709591</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3616000" />
+    <option name="totallyTimeSpent" value="4433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="882" y="99" width="1594" height="1298" extended-state="0" />
@@ -940,7 +946,7 @@
     <entry file="file://$PROJECT_DIR$/src/breakout3/core.cljs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.84501845">
-          <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+          <caret line="94" column="75" selection-start-line="94" selection-start-column="75" selection-end-line="94" selection-end-column="75" />
           <folding />
         </state>
       </provider>
